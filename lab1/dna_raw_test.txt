@@ -1,0 +1,16 @@
+>seq1
+tttccAAAgGGgTCGTACGTatcgtacgtttCgtt
+tcccttcctGGaAAAAaaAA
+ttcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+>seq2
+aaatCCgTCgcTCcCgcCtaaaAAC
+atccc
+atccc
+actccc
+>seq3
+TCAG
+>seq4
+TACGTACGTAAcCtcc
+>seq5
+tCCttcCAaaHH
+cttCttAAGGAA

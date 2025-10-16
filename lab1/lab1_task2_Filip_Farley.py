@@ -12,7 +12,6 @@ def data_file(filename):
     dna_letters = []
     
     with open(filename, "r") as file:
-        contents = file.readlines()
         for raw_line in file:
             line = raw_line.strip()
             if line == "":
@@ -51,7 +50,7 @@ def data_file(filename):
 
 # Creating a loop to print the results for each sequence as a dict.
     for seq, counts in dna_counts.items():
-        print(f"{seq}: {dna_counts}")  
+        print(f"{seq}: {counts}")  
 
 # To create a matplotlib bar graph for every sequence its best to loop it aswell. 
     for seq, counts in dna_counts.items():
@@ -62,4 +61,4 @@ def data_file(filename):
         plt.ylabel("counts")
         plt.show()
 
-data_file("C:/Users/filip/OneDrive/Desktop/DE25/python_Filip_Farley_DE25/Testing/dna_raw.txt")
+data_file("C:/Users/filip/OneDrive/Desktop/DE25/python_Filip_Farley_DE25/lab1/dna_raw_test.txt")
