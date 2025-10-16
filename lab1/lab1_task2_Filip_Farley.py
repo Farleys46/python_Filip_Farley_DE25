@@ -8,37 +8,50 @@ def data_file(filename):
     
     # Creating a dictionary to store the results later. 
     dna_counts = {}
+    seq_number = None
+    dna_letters = []
     
     with open(filename, "r") as file:
         contents = file.readlines()
-    
-    
-    
+        for raw_line in file:
+            line = raw_line.strip()
+            if line == "":
+                continue
+            
+            if line.startswith(">"):
+                if seq_number is not None:
+                    full_seq = "".join(dna_letters).lower()
+                    
+                    
+                    dna_counts[seq_number] = {
+                        "a": full_seq.count("a"),
+                        "t": full_seq.count("t"),
+                        "c": full_seq.count("c"),
+                        "g": full_seq.count("g")
+                    }
+                
+                seq_number = line
+                dna_letters = []
+            
+            else:
+                dna_letters.append(line)
+        
+        if seq_number is not None:
+            full_seq = "".join(dna_letters).lower()
+            dna_counts[seq_number] = {
+                        "a": full_seq.count("a"),
+                        "t": full_seq.count("t"),
+                        "c": full_seq.count("c"),
+                        "g": full_seq.count("g")
+                    }
 
-#First created a for loop with a jump of 2 at a time then remove the "\n" from the file to clean it.
-#Then strip the dna letters aswell as lowercase all letters to be able to count them easily.
 
-    for i in range(0, len(contents), 2):
-        seq_number = contents[i].strip()
-        dna_letters = contents[i + 1].strip().lower()
-    
-    # This is to count the letters using the ".count" method. The "keys" here are "a,t,c,g" before the colon sign.
-    # And the values are what comes after the colon. This is stored in the "counts" dict. 
-    
-        counts = {
-            "a": dna_letters.count("a"),
-            "t": dna_letters.count("t"),
-            "c": dna_letters.count("c"),
-            "g": dna_letters.count("g")
-        }
-
-        dna_counts[seq_number] = counts
-
+# Got inspiration from classmates to make it look nicer. 
     print("---------- Sequence counts ----------")
 
 # Creating a loop to print the results for each sequence as a dict.
     for seq, counts in dna_counts.items():
-        print(f"{seq}: {counts}")  
+        print(f"{seq}: {dna_counts}")  
 
 # To create a matplotlib bar graph for every sequence its best to loop it aswell. 
     for seq, counts in dna_counts.items():
