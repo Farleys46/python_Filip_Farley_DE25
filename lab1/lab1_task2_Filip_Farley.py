@@ -15,7 +15,7 @@ def data_file(filename):
         for raw_line in file:
             line = raw_line.strip()
             
-            if line.startswith(">"): # Checks if line starts with a ">" to determine what is value and what is key.
+            if line.startswith(">"): # Checks if line starts with a ">" to determine where each sequence is.
                 if seq_number is not None:
                     full_seq = "".join(dna_letters).lower() # Join the dna letters together in a single string. And lower the them for easier counting. 
                     
@@ -27,12 +27,13 @@ def data_file(filename):
                         "g": full_seq.count("g")
                     }
                 
-                seq_number = line
-                dna_letters = []
+                seq_number = line 
+                dna_letters = [] # To count new letters, dont want to keep the old ones. 
             
             else:
-                dna_letters.append(line)
-        
+                dna_letters.append(line) # If the lines are split on multiple rows i need to put them together until the next ">". 
+                
+        # To include and count the last sequence to the output i need this last block. Puts together the dna letters and lowers and counts them. 
         if seq_number is not None:
             full_seq = "".join(dna_letters).lower()
             dna_counts[seq_number] = {
