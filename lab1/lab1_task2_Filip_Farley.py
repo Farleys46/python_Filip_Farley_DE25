@@ -8,20 +8,18 @@ def data_file(filename):
     
     # Creating a dictionary to store the results later. 
     dna_counts = {}
-    seq_number = None
-    dna_letters = []
+    seq_number = None # Keeps track of which sequence your on. When line starts with ">" its a new seq.  
+    dna_letters = [] # To store the value in each key, (dna letters)
     
     with open(filename, "r") as file:
         for raw_line in file:
             line = raw_line.strip()
-            if line == "":
-                continue
             
-            if line.startswith(">"):
+            if line.startswith(">"): # Checks if line starts with a ">" to determine what is value and what is key.
                 if seq_number is not None:
-                    full_seq = "".join(dna_letters).lower()
+                    full_seq = "".join(dna_letters).lower() # Join the dna letters together in a single string. And lower the them for easier counting. 
                     
-                    
+                    # Counting the "a", "t", "c", "g"
                     dna_counts[seq_number] = {
                         "a": full_seq.count("a"),
                         "t": full_seq.count("t"),
@@ -46,7 +44,7 @@ def data_file(filename):
 
 
 # Got inspiration from classmates to make it look nicer. 
-    print("---------- Sequence counts ----------")
+    print("------------ Sequence counts ------------")
 
 # Creating a loop to print the results for each sequence as a dict.
     for seq, counts in dna_counts.items():
@@ -61,4 +59,5 @@ def data_file(filename):
         plt.ylabel("counts")
         plt.show()
 
-data_file("C:/Users/filip/OneDrive/Desktop/DE25/python_Filip_Farley_DE25/lab1/dna_raw_test.txt")
+# Calling for the function "data_file" i created and putting in which file i want to use. 
+data_file("C:/Users/filip/OneDrive/Desktop/DE25/python_Filip_Farley_DE25/lab1/dna_raw_complicated.txt")
