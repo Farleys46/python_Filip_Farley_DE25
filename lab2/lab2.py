@@ -1,4 +1,4 @@
-from circle import circle
+from circle import Circle
 from rectangle import rectangle
 from numbers import Number
 
@@ -27,12 +27,40 @@ class Shape:
         
     def __eq__(self, other):
         if not isinstance(other, Shape):
-            return NotImplemented(f"You need to compare 2 shapes")
+            return NotImplemented
         else:
             return self.area == other.area
 
+    def __lt__(self, other):
+        if not isinstance(other, Shape):
+            return NotImplemented
+        else:
+            return self.area < other.area
 
-
+    def __gt__(self, other):
+        if not isinstance(other, Shape):
+            return NotImplemented
+        else:
+            return self.area > other.area
+        
+    def __le__(self, other):
+        if not isinstance(other, Shape):
+            return NotImplemented
+        else:
+            return self.area <= other.area
+        
+    def __ge__(self, other):
+        if not isinstance(other, Shape):
+            return NotImplemented
+        else:
+            return self.area >= other.area
+        
+        
+    def __repr__(self):
+        return(f"x:{self.x}, y:{self.y}")
+        
+    def __str__(self):
+        return(f"The {self.__class__.__name__} has the values X = {self.x}, y = {self.y}")
 
 circle1 = Shape(1, 3)
 
