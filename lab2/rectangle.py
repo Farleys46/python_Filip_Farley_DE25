@@ -1,5 +1,7 @@
 from shape import Shape
 from numbers import Number 
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle as Rectangleplot, Circle as Circleplot
 
 class Rectangle(Shape):
     def __init__(self, x, y, height, width):
@@ -9,10 +11,9 @@ class Rectangle(Shape):
         
         if not all(isinstance(value, Number) for value in (x, y, height, width)):
             raise TypeError(f"values must be of type int or float")
-        if height or width <= 0:
-            raise ValueError(f"Height and Width must be positive and not {height, width}")
-        
-        
+        if height <= 0 or width <= 0:
+            raise ValueError(f"Height and width must be positive and not {height, width}")
+
     @property
     def area(self):
         return self.height * self.width
@@ -26,3 +27,7 @@ class Rectangle(Shape):
             return True
         else:
             return False
+
+    #    
+    def plot(self):
+        fig, ax = plt.subplots(Rectangle)
