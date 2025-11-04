@@ -1,7 +1,7 @@
 from shape import Shape
 from numbers import Number 
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle as Rectanglepatch, Circle as Circlepatch
+from matplotlib.patches import Rectangle as Rectanglepatch
 
 class Rectangle(Shape):
     def __init__(self, x, y, width, height):
@@ -30,7 +30,7 @@ class Rectangle(Shape):
 
     #Plot help from this site: https://www.geeksforgeeks.org/python/how-to-draw-shapes-in-matplotlib-with-python/
     
-    def plot_rect(self):
+    def plot(self):
         corner_x = self.x - self.width / 2 # Since it is the bottom left corner that starts the plot,
         corner_y = self.y - self.height / 2 # i changed it to be the center position.
         fig, ax = plt.subplots()

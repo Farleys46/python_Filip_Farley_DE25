@@ -29,7 +29,7 @@ class Circle(Shape):
         else:
             return False
 
-    def plot_circ(self):
+    def plot(self):
         fig, ax = plt.subplots()
         circ = Circlepatch((self.x, self.y), self.radius, edgecolor = "lightblue", facecolor = "red")
         ax.add_patch(circ)
