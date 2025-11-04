@@ -56,7 +56,7 @@ class Shape:
         
         
     def __repr__(self):
-        return(f"x:{self.x}, y:{self.y}")
+        return(f"Center position = x:{self.x}, y:{self.y}")
         
     def __str__(self):
         return(f"The {self.__class__.__name__} has the values X = {self.x}, y = {self.y}")

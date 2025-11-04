@@ -13,6 +13,8 @@ print(rectangle1.perimeter)
 
 print(rectangle1.is_square())
 
-rectangle1.plot()
+rectangle1.plot_rect()
 
 circle1.__gt__(rectangle1)
+
+circle1.plot_circ()
