@@ -9,8 +9,10 @@ class Rectangle(Shape):
         self.width = width
         self.height = height
         
-        if not all(isinstance(value, Number) for value in (x, y, width, height)):
-            raise TypeError(f"values must be of type int or float")
+        if not all(isinstance(value, Number) for value in (x, y)):
+            raise TypeError(f"x and y values must be of type int or float")
+        if not all(isinstance(value, Number) for value in (width, height)):
+            raise TypeError(f"Width and Height must be numbers and not {width, height}")
         if height <= 0 or width <= 0:
             raise ValueError(f"Width and Height must be positive and not {width, height}")
 

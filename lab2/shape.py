@@ -25,31 +25,31 @@ class Shape:
         
     def __eq__(self, other):
         if not isinstance(other, Shape):
-            return NotImplemented
+            raise TypeError(f"Can only compare shapes and not {other}")
         else:
             return self.area == other.area
 
     def __lt__(self, other):
         if not isinstance(other, Shape):
-            return NotImplemented
+            raise TypeError(f"Can only compare shapes and not {other}")
         else:
             return self.area < other.area
 
     def __gt__(self, other):
         if not isinstance(other, Shape):
-            return NotImplemented
+            raise TypeError(f"Can only compare shapes and not {other}")
         else:
             return self.area > other.area
         
     def __le__(self, other):
         if not isinstance(other, Shape):
-            return NotImplemented
+            raise TypeError(f"Can only compare shapes and not {other}")
         else:
             return self.area <= other.area
         
     def __ge__(self, other):
         if not isinstance(other, Shape):
-            return NotImplemented
+            raise TypeError(f"Can only compare shapes and not {other}")
         else:
             return self.area >= other.area
         
