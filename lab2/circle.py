@@ -10,10 +10,12 @@ class Circle(Shape):
         self.radius = radius
         
         #ErrorHandling.
-        if not all(isinstance(value, Number) for value in (x, y, radius )):
-            raise TypeError(f"values must be of type int or float")
+        if not all(isinstance(value, Number) for value in (x, y)):
+            raise TypeError(f"x and y values must be of type int or float")
+        if not isinstance(radius, Number):
+            raise TypeError(f"Radius must be a number and not {type(radius).__name__}")
         if radius <= 0:
-            raise ValueError(f"Radius must be positive and not {radius}")
+            raise ValueError(f"Radius must be a positive number and not {radius}")
         
     @property
     def area(self):

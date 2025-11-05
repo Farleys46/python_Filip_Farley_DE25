@@ -1,6 +1,5 @@
 from numbers import Number
 
-
 class Shape:
     def __init__(self, x: int|float, y: int|float):
         self.x = x
@@ -18,7 +17,7 @@ class Shape:
     
     def translate(self, dx:int|float, dy:int|float):
         if not (isinstance(dx, Number) and isinstance (dy, Number)):
-            raise TypeError(f"dx and dy needs to be a number and not of type {type(dx) and type(dy)}")
+            raise TypeError(f"dx and dy must be numbers, not {type(dx)} and {type(dy)}")
         # Move position for the X and Y values. 
         else:
             self.x += dx
@@ -56,7 +55,7 @@ class Shape:
         
         
     def __repr__(self):
-        return(f"Center position = x:{self.x}, y:{self.y}")
+        return(f"{self.__class__}x:{self.x}, y:{self.y}")
         
     def __str__(self):
-        return(f"The {self.__class__.__name__} has the values X = {self.x}, y = {self.y}")
+        return(f"The {self.__class__.__name__} has the values X = {self.x}, Y = {self.y}")
